@@ -1,1 +1,24 @@
-Hello World
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Color Code Reader</title>
+  <script>
+    function readColorCode() {
+      // 使用 querystring 模块获取查询参数
+      const queryString = window.location.search;
+      const params = new URLSearchParams(queryString);
+      const colorCode = params.get('color');
+
+      // 设置页面背景颜色
+      if (colorCode) {
+        document.body.style.backgroundColor = '#' + colorCode;
+      }
+    }
+  </script>
+</head>
+<body onload="readColorCode()">
+  <h1>Color Code Reader</h1>
+  <p>读取 URL 查询参数中的颜色代码，设置页面背景颜色。</p>
+</body>
+
+</html>
