@@ -29,8 +29,8 @@ function readColorCode() {
   // 设置页面背景颜色
   if (colorCode) {
     hexCode = colorCode;
-    document.getElementById("capture").style.backgroundColor = "#" + hexCode;
-    document.body.style.backgroundColor = '#' + hexCode;
+    // document.getElementById("capture").style.backgroundColor = "#" + hexCode;
+    // document.body.style.backgroundColor = '#' + hexCode;
 
     var rgbString = 'RGB (' + hexToRgb('#' + hexCode).r + ', '
                         + hexToRgb('#' + hexCode).g + ', '
@@ -48,10 +48,14 @@ function readColorCode() {
     //                     + +hexToRgb('#' + hexCode).b + ')';                        
     // document.getElementById("rgb").innerHTML = rgbString;
     // document.getElementById("hsb").textContent = 'HSB (' + RGBToHSB(hexToRgb('#' + hexCode).r, hexToRgb('#' + hexCode).g, hexToRgb('#' + hexCode).b).toString() + ')';
+
+    const root = document.documentElement;
+    root.style.setProperty('--main-color', '#'+hexCode);
   }
 
 }
 
+`--${this.name}`
  
 function block_capture() {
     html2canvas(document.querySelector("#capture")).then(function (canvas) {
