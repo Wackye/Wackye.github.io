@@ -65,7 +65,7 @@ body {
     position:absolute;
     box-sizing: border-box;
     width: 100vw;
-    top: 48%;
+    top: 42%;
     transform: translateY(-50%);
     
     display: flex;
