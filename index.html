@@ -2,6 +2,11 @@
 <html>
 <head>
   <title>Color Code Reader</title>
+  <style>
+    button{
+        margin: 5px;
+    }
+  </style>
   <script>
     function readColorCode() {
       // 使用 querystring 模块获取查询参数
@@ -17,8 +22,21 @@
   </script>
 </head>
 <body onload="readColorCode()">
-  <h1>Color Code Reader</h1>
-  <p>读取 URL 查询参数中的颜色代码，设置页面背景颜色。</p>
+  <div id="capture" style="padding: 10px;"></div>
+    <h1>Color Code Reader</h1>
+    <p>輸入顏色HEX代碼在URL，改變頁面背景顏色。</p>
+  </div>
+  <button onclick="block_capture()">點我擷取區塊</button>
+  <script>
+        function block_capture() {
+            html2canvas(document.querySelector("#capture")).then(function (canvas) {
+                a = document.createElement('a');
+                a.href = canvas.toDataURL("image/jpeg", 0.92).replace("image/jpeg", "image/octet-stream");
+                a.download = 'image.jpg';
+                a.click();
+            });
+        }
+    </script>
 </body>
 
 </html>
