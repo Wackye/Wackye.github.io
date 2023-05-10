@@ -5,52 +5,29 @@
   <link rel="stylesheet" type="text/css" href="style.css">
   <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
   <script src="http://www-db.deis.unibo.it/courses/TW/DOCS/w3schools/lib/w3color.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Jaldi" rel="stylesheet">
+  <script src="main.js"></script>
 </head>
 <body onload="readColorCode()">
-  <div class="container">
-      <h1>Color Code Reader</h1>
-      <p>輸入顏色HEX代碼在URL，改變頁面背景顏色。</p>
-    <div id="capture">
+  <div class="text-container">
+    <div>
+      <h1 class="title">Color Sample</h1>
+      <!-- <p class="text">輸入顏色HEX代碼在URL，改變頁面背景顏色。</p> -->
+      <p class="text" id="hex"></p>
+      <p class="text" id="rgb"></p>
+      <p class="text" id="hsb"></p>
+    
 
+
+    
+    </div>
+    <div class="img-container">
+      <div id="capture"></div>
     </div>
   </div>
   <button onclick="block_capture()">點我擷取區塊</button>
-  <script>
-    var hexCode = "FFFFFF";
-    function readColorCode() {
-      // 使用 querystring 模块获取查询参数
-      const queryString = window.location.search;
-      const params = new URLSearchParams(queryString);
-      const colorCode = params.get('color');
-
-      // 设置页面背景颜色
-      if (colorCode) {
-        document.getElementById("capture").style.backgroundColor = "#" + colorCode;
-        document.body.style.backgroundColor = '#' + colorCode;
-      }
-    }
-
-    function hexToRgb(hex) {
-      var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-      return result ? {
-        r: parseInt(result[1], 16),
-        g: parseInt(result[2], 16),
-        b: parseInt(result[3], 16)
-      } : null;
-    }
-
-    console.log(hexToRgb(hexCode));
-  </script>
-  <script>
-        function block_capture() {
-            html2canvas(document.querySelector("#capture")).then(function (canvas) {
-                a = document.createElement('a');
-                a.href = canvas.toDataURL("image/jpeg", 0.92).replace("image/jpeg", "image/octet-stream");
-                a.download = colorCode + '.jpg';
-                a.click();
-            });
-        }
-    </script>
+    
+  
 </body>
 
 </html>

@@ -1,12 +1,69 @@
-button {
-    margin: 5px;
-    }
 
-.container {
+
+body {
+    font-family: 'Jaldi', sans-serif;
+    margin: 0;
+    text-align: center;
+}
+
+.text {
+    padding: 0 10%;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5em;
+    text-align: center;
+    letter-spacing: 0.2em;
+    line-height: 175%;
+}
+
+button {
+
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5em 1em;    
+    left: 50%;
+    transform: translate(-50%, -100%);
+    top: calc(100% - 60px);
+        
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 6px;
+    
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 175%;
+}
+
+.title {
+    font-family: 'Jaldi';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 7vw;
+    line-height: 125%;
+}
+.text-container {
+    position:absolute;
     box-sizing: border-box;
-    height: 100vh;
+    width: 100vw;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-container {
+    position:absolute;
+    box-sizing: border-box;
     width: 100vw;
     display: flex;
+    z-index: -1;
+    flex-direction: column;
     align-items: center;
     align-content: center;
 }
@@ -20,3 +77,5 @@ button {
     align-items: center;
     flex-direction: column;
 }
+
+
