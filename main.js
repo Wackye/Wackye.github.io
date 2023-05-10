@@ -17,7 +17,7 @@ const RGBToHSB = (r, g, b) => {
     n = v - Math.min(r, g, b);
   const h =
     n === 0 ? 0 : n && v === r ? (g - b) / n : v === g ? 2 + (b - r) / n : 4 + (r - g) / n;
-  return [Math.round(60 * (h < 0 ? h + 6 : h)), Math.round(v && (n / v) * 100), v * 100];
+  return [Math.round(60 * (h < 0 ? h + 6 : h)), Math.round(v && (n / v) * 100), Math.round(v * 100)];
 };
 
 function readColorCode() {
